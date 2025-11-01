@@ -1,8 +1,38 @@
 [project]
-name = "labs"
+name = "console-app-with-logging"
 version = "0.1.0"
 description = "Add your description here"
-requires-python = ">=3.12"
+requires-python = ">=3.13"
 dependencies = [
-    "pytest>=8.4.2",
+    "ruff>=0.14.2",
+    "typer>=0.20.0",
+    "pytest>=8.0.0",
+    "pytest-cov>=4.0.0",
+    "pytest-mock>=3.12.0",
 ]
+
+[tool.mypy]
+python_executable = "C:/Users/Asus/AppData/Local/Programs/Python/Python314/python.exe"  # полный путь к Python 3.14
+python_version = "3.14"
+ignore_missing_imports = true
+
+[tool.coverage.run]
+source = ["src"]
+omit = [
+    "*/tests/*",
+    "*/__pycache__/*",
+    "*/__init__.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+]
+precision = 2
+show_missing = true
+skip_covered = false
